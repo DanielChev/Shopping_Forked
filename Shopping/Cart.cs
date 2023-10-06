@@ -23,15 +23,14 @@ namespace Shopping
 
             if (clearCart) 
             {
-                articlesReadyToCheckout.Clear();
-                return articlesReadyToCheckout;
+                foreach (Article article in articlesReadyToCheckout)
+                {
+                    _articles.Remove(article);
+                }
+                return _articles;
             }
             else
             {
-                foreach(Article article in _articles)
-                {
-                    articlesReadyToCheckout.Remove(article);
-                }
                 return articlesReadyToCheckout;
             }
         }
