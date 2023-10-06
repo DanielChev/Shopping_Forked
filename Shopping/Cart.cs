@@ -5,46 +5,47 @@ namespace Shopping
     public class Cart : ICollectionOfArticles
     {
         #region private attributes
-        private List<Article> _articles = new List<Article>();
+        private List<CartItem> _articleItems = new List<CartItem>();
+        private float _price;
         #endregion private attributes
 
         #region public methods
-        public void Add(List<Article> articles)
+        public void Add(List<CartItem> articleItems)
         {
-            foreach (Article article in articles)
+            foreach (CartItem cartItem in articleItems)
             {
-                _articles.Add(article);
+                _articleItems.Add(cartItem);
             }
         }
 
-        public List<Article> Remove(bool clearCart = false)
+        public List<CartItem> Remove(Boolean clearCart = false)
         {
-            List<Article> articlesReadyToCheckout = new List<Article>();
+            throw new NotImplementedException();
+        }
 
-            if (clearCart) 
-            {
-                foreach (Article article in articlesReadyToCheckout)
-                {
-                    _articles.Remove(article);
-                }
-                return _articles;
-            }
-            else
-            {
-                return articlesReadyToCheckout;
-            }
+        public List<CartItem> Remove(CartItem cartItemToRemove)
+        {
+            throw new NotImplementedException();
         }
 
         public void Release()
         {
-            IsReleased = true;
+            throw new NotImplementedException();
         }
 
-        public List<Article> Articles
+        public List<CartItem> CartItems
         {
             get
             {
-                return _articles;
+                throw new NotImplementedException();
+            }
+        }
+
+        public float Price
+        {
+            get
+            {
+                return _price;
             }
         }
 
