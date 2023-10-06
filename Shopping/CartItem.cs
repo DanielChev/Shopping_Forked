@@ -12,14 +12,17 @@ namespace Shopping
         #region public methods
         public CartItem(Article article, int quantity)
         {
-            throw new NotImplementedException();
+            
+            _article = article;
+            _quantity = quantity;
+
         }
 
         public Article Article
         {
             get
             {
-                throw new NotImplementedException();
+                return _article;
             }
         }
 
@@ -27,11 +30,16 @@ namespace Shopping
         {
             get
             {
-                throw new NotImplementedException();
+                return _quantity;
             }
             set
             {
-                throw new NotImplementedException();
+                if (value < 0)
+                {
+                    throw new WrongQuantityException();
+                }
+                
+                _quantity = value;
             }
         }
         #endregion public methods

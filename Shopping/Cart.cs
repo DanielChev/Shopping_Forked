@@ -10,12 +10,15 @@ namespace Shopping
         #endregion private attributes
 
         #region public methods
-        public void Add(List<CartItem> articleItems)
+        public void Add(List<CartItem> cartItems)
         {
-            foreach (CartItem cartItem in articleItems)
+            _articleItems.AddRange(cartItems);
+
+            for (int i = 0; i < CartItems.Count(); i++)
             {
-                _articleItems.Add(cartItem);
+                _price += cartItems[i].Article.Price;
             }
+
         }
 
         public List<CartItem> Remove(Boolean clearCart = false)
@@ -37,7 +40,7 @@ namespace Shopping
         {
             get
             {
-                throw new NotImplementedException();
+                return _articleItems;
             }
         }
 
