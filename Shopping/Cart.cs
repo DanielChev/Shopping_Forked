@@ -11,36 +11,49 @@ namespace Shopping
         #region public methods
         public void Add(List<Article> articles)
         {
-            throw new NotImplementedException();
+            foreach (Article article in articles)
+            {
+                _articles.Add(article);
+            }
         }
 
-        public List<Article> Remove(Boolean clearCart = false)
+        public List<Article> Remove(bool clearCart = false)
         {
             List<Article> articlesReadyToCheckout = new List<Article>();
+
             if (clearCart) 
             {
-                throw new NotImplementedException();
+                articlesReadyToCheckout.Clear();
+                return articlesReadyToCheckout;
             }
             else
             {
-                throw new NotImplementedException();
+                foreach(Article article in _articles)
+                {
+                    articlesReadyToCheckout.Remove(article);
+                }
+                return articlesReadyToCheckout;
             }
         }
 
         public void Release()
         {
-            throw new NotImplementedException();
+            IsReleased = true;
         }
 
         public List<Article> Articles
         {
             get
             {
-                throw new NotImplementedException();
+                return _articles;
             }
         }
 
         public bool? IsReleased { get; set; }
+
+        public class CartException : Exception { };
+        public class EmptyCartException : CartException { };
+
         #endregion public methods
     }
 }
