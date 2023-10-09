@@ -62,7 +62,7 @@ namespace TestShopping
             actualArticles = _checkout.Remove();
 
             //then
-            Assert.AreEqual(amountOfArticlesToAdd-1, _checkout.Articles.Count());
+            Assert.AreEqual(amountOfArticlesToAdd - 1, _checkout.Articles.Count());
         }
 
         [Test]
@@ -73,7 +73,7 @@ namespace TestShopping
             int amountOfArticlesToAdd = 10;
             List<Article> expectedArticles = ArticleGenerator.Generate(amountOfArticlesToAdd);
             List<Article> actualArticles = new List<Article>();
-            
+
             _checkout.Add(expectedArticles);
             Assert.AreEqual(expectedArticles.Count(), _checkout.Articles.Count());
 

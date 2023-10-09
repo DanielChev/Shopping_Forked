@@ -1,6 +1,4 @@
-﻿using System.Net.Http.Headers;
-
-namespace Shopping
+﻿namespace Shopping
 {
     public class CartItem
     {
@@ -12,7 +10,7 @@ namespace Shopping
         #region public methods
         public CartItem(Article article, int quantity)
         {
-            
+
             _article = article;
             _quantity = quantity;
 
@@ -38,7 +36,7 @@ namespace Shopping
                 {
                     throw new WrongQuantityException();
                 }
-                
+
                 _quantity = value;
             }
         }

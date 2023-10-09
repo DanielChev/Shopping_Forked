@@ -56,7 +56,7 @@ namespace TestShopping
 
             //when
             Assert.Throws<WrongQuantityException>(() => _cartItem.Quantity = expectedQuantity);
-            
+
             //then
             //throws exception
         }

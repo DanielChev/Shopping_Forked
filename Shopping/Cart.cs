@@ -1,6 +1,4 @@
-﻿using System.Net.Http.Headers;
-
-namespace Shopping
+﻿namespace Shopping
 {
     public class Cart : ICollectionOfArticles
     {
@@ -12,13 +10,26 @@ namespace Shopping
         #region public methods
         public void Add(List<CartItem> cartItems)
         {
-            _articleItems.AddRange(cartItems);
 
-            for (int i = 0; i < CartItems.Count(); i++)
+            foreach (CartItem cartItem in cartItems)
             {
-                _price += cartItems[i].Article.Price;
+                if (cartItem.Quantity > 1)
+                {
+                    _articleItems.Add(cartItem);
+                    cartItem.Quantity -= 1;
+                    _articleItems.Add(cartItem);
+                }
+                else
+                {
+                    _articleItems.Add(cartItem);
+                }
             }
 
+
+            foreach (CartItem cartItem in _articleItems)
+            {
+                _price += cartItem.Article.Price;
+            }
         }
 
         public List<CartItem> Remove(Boolean clearCart = false)
