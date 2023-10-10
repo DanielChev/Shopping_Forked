@@ -1,10 +1,11 @@
-﻿namespace Shopping
+﻿using System.Net.Http.Headers;
+
+namespace Shopping
 {
     public class Cart
     {
         #region private attributes
         private List<CartItem> _articleItems = new List<CartItem>();
-        private float _price;
         #endregion private attributes
 
         #region public methods
@@ -42,7 +43,7 @@
             throw new NotImplementedException();
         }
 
-        public void Release()
+        public void Remove(List<CartItem> cartItemsToRemove)
         {
             throw new NotImplementedException();
         }

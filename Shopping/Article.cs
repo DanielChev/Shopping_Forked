@@ -3,11 +3,13 @@
     public class Article
     {
         #region private attributes
+        private int _id;
+        private string _description = "";
         private float _price = 0f;
         #endregion private attributes
 
         #region public methods
-        public Article(float price)
+        public Article(int id, string description, float price)
         {
             _price = price;
         }
@@ -28,6 +30,7 @@
                 throw new NotImplementedException();
             }
         }
+
         public float Price
         {
             get
