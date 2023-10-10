@@ -1,7 +1,4 @@
-﻿using System.Linq;
-using System.Net.Http.Headers;
-
-namespace Shopping
+﻿namespace Shopping
 {
     public class Cart
     {
@@ -33,12 +30,6 @@ namespace Shopping
                 }
                 */
             }
-
-
-            foreach (CartItem cartItem in _articleItems)
-            {
-                _price += cartItem.Article.Price;
-            }
         }
 
         public List<CartItem> Remove(Boolean clearCart = false)
@@ -68,11 +59,16 @@ namespace Shopping
         {
             get
             {
+
+                foreach (CartItem cartItem in _articleItems)
+                {
+                    _price += cartItem.Article.Price;
+                }
+
                 return _price;
             }
-        }
 
-        public bool? IsReleased { get; set; }
+        }
 
         public class CartException : Exception { };
         public class EmptyCartException : CartException { };

@@ -42,7 +42,7 @@ namespace TestShopping
             //refer to Setup
             int expectedArticlesQuantity = 2;
             List<Article> expectedArticles = ArticleGenerator.Generate(expectedArticlesQuantity);
-            
+
             int expectedQuantity1 = 1;
             CartItem expectedCartItem1 = new CartItem(expectedArticles[0], expectedQuantity1);
 
@@ -99,7 +99,7 @@ namespace TestShopping
             //given
             List<Article> articles = ArticleGenerator.Generate(5);
             List<CartItem> cartItems = new List<CartItem>();
-            foreach(Article article in articles)
+            foreach (Article article in articles)
             {
                 cartItems.Add(new CartItem(article, 1));
             }
