@@ -12,6 +12,8 @@
         public Article(int id, string description, float price)
         {
             _price = price;
+            _id = id;
+            _description = description;
         }
 
 
@@ -19,7 +21,7 @@
         {
             get
             {
-                throw new NotImplementedException();
+                return _id;
             }
         }
 
@@ -27,7 +29,7 @@
         {
             get
             {
-                throw new NotImplementedException();
+                return _description;
             }
         }
 

@@ -1,4 +1,5 @@
-﻿using System.Net.Http.Headers;
+﻿using System.Linq;
+using System.Net.Http.Headers;
 
 namespace Shopping
 {
@@ -6,6 +7,8 @@ namespace Shopping
     {
         #region private attributes
         private List<CartItem> _articleItems = new List<CartItem>();
+        private float _price = 0f;
+        private int idComparator = 0;
         #endregion private attributes
 
         #region public methods
@@ -14,16 +17,21 @@ namespace Shopping
 
             foreach (CartItem cartItem in cartItems)
             {
+                _articleItems.Add(cartItem);
+
+                /*
                 if (cartItem.Quantity > 1)
                 {
                     _articleItems.Add(cartItem);
                     cartItem.Quantity -= 1;
                     _articleItems.Add(cartItem);
                 }
+
                 else
                 {
                     _articleItems.Add(cartItem);
                 }
+                */
             }
 
 
