@@ -33,25 +33,24 @@
             }
             set
             {
-                string descToCheck = value;
                 float maxSize = 50;
                 char[] specialChars = { '!', '*', '+', '/' };
 
                 foreach (char specialChar in specialChars)
                 {
-                    if (descToCheck.Contains(specialChar))
+                    if (value.Contains(specialChar))
                     {
                         throw new SpecialCharInDescriptionException();
                     }
                 }
 
                 //La description doit contenir au moins un espace
-                if (!descToCheck.Contains(' '))
+                if (!value.Contains(' '))
                 {
                     throw new TooShortDescriptionException();
                 }
 
-                if (descToCheck.Length > maxSize)
+                if (value.Length > maxSize)
                 {
                     throw new TooLongDescriptionException();
                 }
