@@ -35,7 +35,6 @@
             {
                 string descToCheck = value;
                 float maxSize = 50;
-                char backSpace = ' ';
                 char[] specialChars = { '!', '*', '+', '/' };
 
                 foreach (char specialChar in specialChars)
@@ -46,7 +45,8 @@
                     }
                 }
 
-                if (!descToCheck.Contains(backSpace))
+                //La description doit contenir au moins un espace
+                if (!descToCheck.Contains(' '))
                 {
                     throw new TooShortDescriptionException();
                 }
