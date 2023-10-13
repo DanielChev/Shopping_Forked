@@ -33,7 +33,32 @@
             }
             set
             {
-                throw new NotImplementedException();
+
+                string descToCheck = value;
+
+                float maxSize = 50;
+                char backSpace = ' ';
+                char[] specialChars = { '!', '*', '+', '/' };
+
+                foreach (char specialChar in specialChars)
+                {
+                    if (descToCheck.Contains(specialChar))
+                    {
+                        throw new SpecialCharInDescriptionException();
+                    }
+                }
+
+                if (!descToCheck.Contains(backSpace))
+                {
+                    throw new TooShortDescriptionException();
+                }
+
+                if(descToCheck.Length > maxSize)
+                {
+                    throw new TooLongDescriptionException();
+                }
+
+                _description = value;
             }
         }
 
