@@ -4,7 +4,6 @@
     {
         #region private attributes
         private List<CartItem> _articleItems = new List<CartItem>();
-        private float _price = 0f;
         private int idComparator = 0;
         #endregion private attributes
 
@@ -59,10 +58,11 @@
         {
             get
             {
+                float _price = 0f;
 
                 foreach (CartItem cartItem in _articleItems)
                 {
-                    _price += cartItem.Article.Price;
+                    _price += cartItem.Article.Price * cartItem.Quantity;
                 }
 
                 return _price;

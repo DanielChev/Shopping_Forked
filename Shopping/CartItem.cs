@@ -10,10 +10,8 @@
         #region public methods
         public CartItem(Article article, int quantity)
         {
-
             _article = article;
             _quantity = quantity;
-
         }
 
         public Article Article
