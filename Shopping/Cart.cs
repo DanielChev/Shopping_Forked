@@ -58,14 +58,14 @@
         {
             get
             {
-                float _price = 0f;
+                float price = 0f;
 
                 foreach (CartItem cartItem in _articleItems)
                 {
-                    _price += cartItem.Article.Price * cartItem.Quantity;
+                    price += cartItem.Article.Price * cartItem.Quantity;
                 }
 
-                return _price;
+                return price;
             }
 
         }

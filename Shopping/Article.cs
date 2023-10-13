@@ -33,9 +33,7 @@
             }
             set
             {
-
                 string descToCheck = value;
-
                 float maxSize = 50;
                 char backSpace = ' ';
                 char[] specialChars = { '!', '*', '+', '/' };
@@ -53,7 +51,7 @@
                     throw new TooShortDescriptionException();
                 }
 
-                if(descToCheck.Length > maxSize)
+                if (descToCheck.Length > maxSize)
                 {
                     throw new TooLongDescriptionException();
                 }
